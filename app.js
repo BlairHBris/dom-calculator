@@ -1,3 +1,6 @@
+///https://medium.com/@blake.a.long/a-basic-dom-calculator-1303de2f8024
+///https://freshman.tech/calculator/
+
 document.addEventListener("DOMContentLoaded", function () {
     const screen = document.querySelector("#screen")
     const spans = document.querySelectorAll(".buttons span")
