@@ -14,16 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             if (button.innerText === "=") {
                 if (screen.innerText.includes("/0")){
-                    screen.innerText = "Error, Press C"
+                    screen.innerText = "Error, Resetting"
                 }
                 screen.innerText = eval(screen.innerText)
             }
         }
         catch (error) {
-            screen.innerText = "Error, Press C"
-        }
-        if (screen.innerText == "Error, Press C"){
-            
+            screen.innerText = "Error, Resetting"
+            if (screen.innerText = "Error, Resetting"){
+                setTimeout(function() {
+                    screen.innerText = ""
+                }, 1000)
+            }
         }
     }))
 })
