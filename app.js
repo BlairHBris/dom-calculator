@@ -1,32 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const screen = document.querySelector("#screen")
-    const spans = document.querySelectorAll(".buttons span")
-    const spanArray = Array.from(spans)
-    document.querySelectorAll(".operator")[1].innerText = "/"
-    document.querySelectorAll(".operator")[2].innerText = "*"
+let acceptingInput = true
 
-    spanArray.map(button => button.addEventListener("click", function () {
-        if (button.innerText !== "=") {
-            screen.innerText += button.innerText
-        } if (button.innerText === "C") {
-            screen.innerText = ""
-        } 
-        try {
-            if (button.innerText === "=") {
-                if (screen.innerText.includes("/0")){
-                    screen.innerText = "Error, Resetting"
-                }
-                screen.innerText = eval(screen.innerText)
+const screen = document.querySelector("#screen")
+const spans = document.querySelectorAll(".buttons span")
+const spanArray = Array.from(spans)
+document.querySelectorAll(".operator")[1].textContent = "/"
+document.querySelectorAll(".operator")[2].textContent = "*"
+
+spanArray.map(button => button.addEventListener("click", function () {
+    if (button.textContent !== "=" && acceptingInput) {
+        screen.textContent += button.textContent
+    } if (button.textContent === "C" && acceptingInput) {
+        screen.tectContent = ""
+    }
+    try {
+        if (button.textContent === "=" && acceptingInput) {
+            if (screen.textContent.includes("/0")) {
+                screen.textContent = "Error, Resetting"
             }
+            screen.textContent = eval(screen.textContent)
         }
-        catch (error) {
-            screen.innerText = "Error, Resetting"
-            if (screen.innerText = "Error, Resetting"){
-                setTimeout(function() {
-                    screen.innerText = ""
-                }, 1000)
-            }
-        }
-    }))
-})
+    }
+    catch (error) {
+        screen.textContent = "Error, Resetting"
+        acceptingInput = false
+        setTimeout(function () {
+            acceptingInput = true
+            screen.textContent = ""
+        }, 1500)
+    }
+}))
+
 
