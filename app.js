@@ -2,11 +2,11 @@ let acceptingInput = true
 
 const screen = document.querySelector("#screen")
 const spans = document.querySelectorAll(".buttons span")
-const spanArray = Array.from(spans)
+const calcButtons = Array.from(spans)
 document.querySelectorAll(".operator")[1].textContent = "/"
 document.querySelectorAll(".operator")[2].textContent = "*"
 
-spanArray.map(button => button.addEventListener("click", function () {
+calcButtons.map(button => button.addEventListener("click", function () {
     if (button.textContent !== "=" && acceptingInput) {
         screen.textContent += button.textContent
     } if (button.textContent === "C" && acceptingInput) {
