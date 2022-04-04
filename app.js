@@ -2,9 +2,9 @@ let acceptingInput = true
 
 const screen = document.querySelector("#screen")
 const spans = document.querySelectorAll(".buttons span")
-const calcButtons = Array.from(spans)
+const calculatorButtons = Array.from(spans)
 
-calcButtons.map(button => button.addEventListener("click", function () {
+calculatorButtons.forEach(button => button.addEventListener("click", function () {
     if (button.textContent !== "=" && button.textContent !== "÷" && button.textContent !== "x" && acceptingInput) {
         screen.textContent += button.textContent
     } if (button.textContent == "÷" && acceptingInput) {
