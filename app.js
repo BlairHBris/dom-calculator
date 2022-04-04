@@ -3,14 +3,16 @@ let acceptingInput = true
 const screen = document.querySelector("#screen")
 const spans = document.querySelectorAll(".buttons span")
 const calcButtons = Array.from(spans)
-document.querySelectorAll(".operator")[1].textContent = "/"
-document.querySelectorAll(".operator")[2].textContent = "*"
 
 calcButtons.map(button => button.addEventListener("click", function () {
-    if (button.textContent !== "=" && acceptingInput) {
+    if (button.textContent !== "=" && button.textContent !== "÷" && button.textContent !== "x" && acceptingInput) {
         screen.textContent += button.textContent
+    } if (button.textContent == "÷" && acceptingInput) {
+        screen.textContent += "/"
+    } if (button.textContent == "x" && acceptingInput) {
+        screen.textContent += "*"
     } if (button.textContent === "C" && acceptingInput) {
-        screen.tectContent = ""
+        screen.textContent = ""
     }
     try {
         if (button.textContent === "=" && acceptingInput) {
