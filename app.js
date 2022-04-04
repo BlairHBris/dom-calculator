@@ -2,7 +2,7 @@ let acceptingInput = true
 
 const screen = document.querySelector("#screen")
 const spans = document.querySelectorAll(".buttons span")
-const calculatorButtons = Array.from(spans)
+const calculatorButtons = Object.values(spans)
 
 calculatorButtons.forEach(button => button.addEventListener("click", function () {
     if (button.textContent !== "=" && button.textContent !== "÷" && button.textContent !== "x" && acceptingInput) {
